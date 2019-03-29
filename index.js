@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const config = require('./config/db-config');
+const config = require('./config/config');
 
 const startServer = () => {
   const server = express();
@@ -9,7 +9,7 @@ const startServer = () => {
   );
 }
 
-config.URL;
+mongoose.connect(config.URL, { useNewUrlParser: true })
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
