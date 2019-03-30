@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
-config = {
-  DB_NAME: 'wuma-sports',
-  URL: `mongodb://localhost/${this.DB_NAME}`,
+const config = {
+  URL: `mongodb://localhost/wuma-sports`,
   PORT: 3000,
 }
 
