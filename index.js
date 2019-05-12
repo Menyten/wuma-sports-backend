@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config/config');
-const db = require('./db');
+const connectToDbAndStartServer = require('./config/db');
 
 const startServer = () => {
   const server = express();
@@ -12,8 +12,4 @@ const startServer = () => {
 
 mongoose.connect(config.URL, { useNewUrlParser: true })
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('Connected to DB')
-  startServer();
-});
+connectToDbAndStartServer(startServer);
