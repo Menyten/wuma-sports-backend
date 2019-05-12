@@ -1,6 +1,6 @@
 const express = require('express');
 const config = require('./config/config');
-const connectToDbAndStartServer = require('./config/db');
+const connectToDb = require('./config/db');
 
 const startServer = () => {
   const server = express();
@@ -9,4 +9,5 @@ const startServer = () => {
   );
 }
 
-connectToDbAndStartServer(startServer);
+connectToDb();
+startServer();
