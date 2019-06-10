@@ -2,6 +2,7 @@ const express = require('express');
 const config = require('./config/config');
 const connectToDb = require('./config/db');
 const routes = require('./api/routes');
+const cors = require('cors');
 const app = express();
 
 const startServer = () => {
@@ -10,6 +11,7 @@ const startServer = () => {
   );
 }
 
+app.use(cors());
 app.use(routes);
 
 connectToDb();
