@@ -9,7 +9,6 @@ async function verify(token) {
     audience: googleConfig.CLIENT_ID,
   });
   const payload = ticket.getPayload();
-  const userid = payload['sub'];
   const newUser = new Account({
     email: payload.email,
     name: payload.name,
@@ -24,17 +23,6 @@ async function verify(token) {
       });
     }
   });
-  /* newUser.save((err, user) => {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      console.log(`${user.name} has been save to the db`);
-    }
-  }); */
-  // console.log(newUser)
-  // console.log(userid)
-
 }
 
 module.exports = verify;
