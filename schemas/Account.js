@@ -8,5 +8,4 @@ const AccountSchema = new Schema({
   accountLevel: Number,
 })
 
-module.exports = db.model('Account', AccountSchema)
-
+module.exports = mongoose.model('Account', AccountSchema)

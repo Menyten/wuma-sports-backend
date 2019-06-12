@@ -1,7 +1,7 @@
 const { OAuth2Client } = require('google-auth-library');
 const googleConfig = require('../config/google');
 const client = new OAuth2Client(googleConfig.CLIENT_ID);
-const Account = require('../schemas/Account')
+const Account = require('../schemas/Account');
 
 async function verify(token) {
   const ticket = await client.verifyIdToken({
@@ -17,7 +17,7 @@ async function verify(token) {
   })
   console.log(newUser)
   console.log(userid)
-  
+
 }
 
 module.exports = verify;
