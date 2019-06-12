@@ -15,16 +15,25 @@ async function verify(token) {
     name: payload.name,
     avatar: payload.picture,
   })
-  newUser.save((err, user) => {
+  Account.findOne({ email: newUser.email }, (err, user) => {
+    if (user) {
+      console.log('User already exists')
+    } else {
+      newUser.save((err, user) => {
+        console.log(user.name, 'has been saved!');
+      });
+    }
+  });
+  /* newUser.save((err, user) => {
     if (err) {
       console.log(err);
     }
     else {
       console.log(`${user.name} has been save to the db`);
     }
-  });
-  console.log(newUser)
-  console.log(userid)
+  }); */
+  // console.log(newUser)
+  // console.log(userid)
 
 }
 
