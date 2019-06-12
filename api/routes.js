@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const verify = require('../helpers/verifyToken');
 
-router.get('/api/user', (req, res) => {
+router.get('/api/userDetails', (req, res) => {
   console.log(req.headers);
   res.json({ msg: 'Something' });
 });
