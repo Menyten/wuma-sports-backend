@@ -9,6 +9,10 @@ async function verify(token) {
     audience: googleConfig.CLIENT_ID,
   });
   const payload = ticket.getPayload();
+  console.log(payload)
+}
+
+async function getUser() {
   const newUser = new Account({
     email: payload.email,
     name: payload.name,
@@ -25,4 +29,7 @@ async function verify(token) {
   });
 }
 
-module.exports = verify;
+module.exports = {
+  verify,
+  getUser,
+}
