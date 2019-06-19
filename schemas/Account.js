@@ -6,6 +6,7 @@ const AccountSchema = new Schema({
   name: { type: String, required: true },
   avatar: String,
   accountLevel: Number,
+  token: String
 })
 
 module.exports = mongoose.model('Account', AccountSchema)
