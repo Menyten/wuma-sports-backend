@@ -3,16 +3,6 @@ const router = express.Router();
 const verify = require('../helpers/verify-token');
 const Account = require('../schemas/Account');
 
-router.get('/api/userDetails', (req, res) => {
-  console.log(req.headers);
-  res.json({ msg: 'Something' });
-});
-
-router.post('/api/verifyToken', (req, res) => {
-  verify(req.body.token).catch(err => console.log(err));
-  res.json({ msg: 'Verified' });
-});
-
 router.get('/api/users/', async (req, res) => {
   const token = req.headers.authorization.split(' ')[1];
   const payload = await verify(token);
